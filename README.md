@@ -1,3 +1,5 @@
 # Webvr
 
-Es steht noch nicht viel drin und ich habe meine Experimente mal in einen "michael"-Ordner geschoben. Der Rest wird sich entwicklen.
+## superhands physics
+
+Das läuft jetzt mal lokal. Die zusätzlichen Files sind in `assets/` untergebracht, die Bibliotheken in `lib/`. `superhands-physics.html` baut die Szene in `aframe` auf.
