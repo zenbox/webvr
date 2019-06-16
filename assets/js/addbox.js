@@ -165,7 +165,7 @@ AFRAME.registerComponent('addbox', {
 
       setTimeout(function () {
         primitiveEl.parentNode.removeChild(primitiveEl);
-      }, 8000);
+      }, 20000);
 
       sceneEl.appendChild(primitiveEl);
 
