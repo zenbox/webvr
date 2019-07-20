@@ -163,9 +163,9 @@ AFRAME.registerComponent('addbox', {
       primitiveEl.setAttribute('material', json2value(material))
       primitiveEl.setAttribute('color', randomColor());
 
-      setTimeout(function () {
-        primitiveEl.parentNode.removeChild(primitiveEl);
-      }, 20000);
+      // setTimeout(function () {
+      //   primitiveEl.parentNode.removeChild(primitiveEl);
+      // }, 20000);
 
       sceneEl.appendChild(primitiveEl);
 
