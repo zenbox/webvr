@@ -98,26 +98,26 @@
         - - - - - - - - - - -->
         <a-entity id="architecture" class="homeworld" visible>
 
-        <!-- - - - - - - - - - -
+            <!-- - - - - - - - - - -
              the floor:
              A 30 by 30 meters square,
              texture is a wooden floor tile, 4 by 4.
              The texture is in assets
              src="#woodfloor" repeat="4 4"
         - - - - - - - - - - -->
-        <a-box id="floor" src="#woodfloor" repeat="10 10" width="50" depth="50" height="0.1" color="hsl(210,100%, 90%)" static-body shadow
-        material geometry velocity position></a-box>
+            <a-box id="floor" src="#woodfloor" repeat="10 10" position="0 -0.1 0" width="50" depth="50" height="0.1"
+                color="hsl(210,100%, 90%)" static-body shadow material geometry velocity></a-box>
 
-        <!-- - - - - - - - - - -
+            <!-- - - - - - - - - - -
              walls:
              A 10 by 4 meters cube,
              texture is a wooden floor tile, 4 by 4.
         - - - - - - - - - - -->
-        <a-box id="wall" position="0 1 -8" width="5" depth=".25" height="2" color="hsl(210,100%, 90%)" static-body shadow
-        material geometry velocity grabbable dynamic-body></a-box>
+            <a-box id="wall1" position="0 1.1 -8" width="5" depth="0.5" height="2" color="hsl(210,100%, 90%)" shadow
+                material geometry velocity grabbable dynamic-body></a-box>
 
-        <a-box id="wall" rotation="0 90 0" position="9 1 -8" width="5" depth=".25" height="2" color="hsl(210,100%, 90%)" static-body shadow
-        material geometry velocity grabbable dynamic-body></a-box>
+            <a-box id="wall2" position="9 1.1 -8" rotation="0 90 0" width="5" depth="0.5" height="2"
+                color="hsl(210,100%, 90%)" shadow material geometry velocity grabbable dynamic-body></a-box>
 
         </a-entity>
         <!-- - - - - - - - - - -
@@ -125,24 +125,35 @@
              More of them by clicking the skull
         - - - - - - - - - - -->
         <a-box position="0 10 -5" class="cube" material="
-    metalness:1; 
-    roughness:0.5; 
-    transparent: true; 
-    opacity: .7; 
-    shader: standard;  
-    color: hsl(120,100%,50%); 
-    side: double;" grabbable velocity dynamic-body shadow geometry>
+        metalness:1; 
+        roughness:0.5; 
+        transparent: true; 
+        opacity: .7; 
+        shader: standard;  
+        color: hsl(120,100%,50%); 
+        side: double;" grabbable velocity dynamic-body shadow geometry>
         </a-box>
 
-            <!-- - - - - - - - - - -
+        <!-- - - - - - - - - - -
              A reset button:
              By clicking, the scene switches back to origin
         - - - - - - - - - - -->
-    <a-circle id="reload" position="0 .1 0" rotation="-90 0 0" color="red" reload material geometry>
-    </a-circle>
+        <a-circle id="reload" position="0 .1 0" rotation="-90 0 0" color="red" reload material geometry>
+        </a-circle>
+
+
+        <a-assets>
+            <a-asset-item id="scene" src="assets/figures/scene.gltf">
+        </a-assets>
+
+        <!-- Using the asset management system. -->
+        <a-gltf-model src="#scene"></a-gltf-model>
+
 
 
     </a-scene>
+
+    <script src="assets/js/room.js"></script>
 </body>
 
 </html>
