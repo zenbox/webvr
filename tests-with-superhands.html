@@ -107,8 +107,16 @@
                 // DECLARATION
                 let inworld = {};
 
-                // THE INWORLD OBJECT
-                // An inworld log function
+                /** INVENTING AN INWORLD OBJECT
+                 * @desc the inworld objet is a container for inworld function,
+                 *       i.e. a log() that can be seen in a textframe
+                 * @version 1.0.0
+                 * @author Michael
+                 *
+                 * An inworld log function
+                 * @param {string} message any text string to set into a inworls textframe
+                 * @return none
+                 */
                 inworld.log = function (message) {
                     let
                         _message = message || undefined,
