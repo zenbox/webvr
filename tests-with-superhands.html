@@ -23,8 +23,22 @@
 
 <body>
     <a-scene physics>
+        <!-- common assets -->
         <a-assets>
-            <a-mixin id="point" raycaster="
+            <!--
+            the oculus controller (hands-left, hands-right) MIXIN
+            enables interacting between controler an objects
+
+            using 'superhands'
+            using a 'sphere-collider' for superhands  
+        
+            hover & drag-drop won't have any obvious effect without some additional event handlers or components.
+
+            colliderEvent: collision                -> makes objects grabbable
+            colliderEvent: raycaster-intersection:  -> ???
+            -->
+            <a-mixin id="interaction" sphere-collider="objects: #box, #sphere, #object" physics-collider phase-shift
+                collision-filter laser-controls line raycaster="
                 showLine: true; 
                 objects: .cube" collision-filter="collisionForces: false" static-body="
                 shape: sphere; 
@@ -45,20 +59,12 @@
 
         <!-- 
         the oculus controller (hands-left, hands-right)
-        using 'superhands'
-        using a 'sphere-colliger' for superhands  
-        
-        hover & drag-drop won't have any obvious effect without some additional event handlers or components.
 
-        colliderEvent: collision                -> makes objects grabbable
-        colliderEvent: raycaster-intersection:  -> ???
-
+        using the interaction mixin (assets)
         -->
-        <a-entity sphere-collider="objects: #box, #sphere, #object" mixin="point" hand-controls="left" physics-collider
-            phase-shift collision-filter laser-controls line>
+        <a-entity mixin="interaction" hand-controls="left">
         </a-entity>
-        <a-entity sphere-collider="objects: #box, #sphere, #object" mixin="point" hand-controls="right" physics-collider
-            phase-shift collision-filter laser-controls line>
+        <a-entity mixin="interaction" hand-controls="right">
         </a-entity>
         <!--  -->
 
