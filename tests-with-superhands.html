@@ -164,12 +164,12 @@
                 // - - - - -
                 // DECLARATION
                 let inworld = {};
-
                 inworld.data = ['inworld log initialized.'];
 
                 /** INVENTING AN INWORLD OBJECT
                  * @desc the inworld objet is a container for inworld function,
-                 *       i.e. a log() that can be seen in a textframe
+                 *       i.e. a log() that can be seen in a textframe.
+                 *       It uses a limited array of messages. (10 so far)
                  * @version 1.0.0
                  * @author Michael
                  *
@@ -181,6 +181,7 @@
                     let
                         _message = message || undefined,
                         _messages = '',
+                        _limit = 10,
                         _text = document.querySelector('#text') || undefined;
 
                     if (_message === undefined) return false;
@@ -188,16 +189,25 @@
 
                     inworld.data.push(_message);
 
+                    if (inworld.data.length > _limit) inworld.data.shift();
+
                     for (let i = 0; i < inworld.data.length; i++) {
-                        _messages += inworld.data[i] + '\n';
+                        _messages += '>  ' + inworld.data[i] + '\n';
                     }
 
                     _text.setAttribute('value', _messages);
-                    console.log(_messages);
-
                 };
 
-                inworld.log('hey.');
+
+                // Uncomment to see a inworld.log() demo
+                // - - - - - - - - - -
+                let
+                    counter = 0,
+                    demo = setInterval(function () {
+                        inworld.log('I can count to ' + counter++ + '. Yeah!!');
+                        if (counter > 50) clearInterval(demo);
+                    }, 5000);
+                // - - - - - - - - - -
 
                 /**
                  * Implement AABB collision detection for entities with a mesh.
