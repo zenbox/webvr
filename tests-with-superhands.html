@@ -164,7 +164,7 @@
                 // - - - - -
                 // DECLARATION
                 let inworld = {};
-                inworld.data = ['inworld log initialized.'];
+                inworld.data = ['initializing ...'];
 
                 /** INVENTING AN INWORLD OBJECT
                  * @desc the inworld objet is a container for inworld function,
@@ -330,6 +330,9 @@
                         };
                     })()
                 });
+                // - - - - - - - - - -
+                // CONTROLS
+                inworld.log('ready.');
 
                 // REGISTER AFRAME COMPONENTS
                 // AFRAME.registerComponent('log', {
