@@ -13,6 +13,8 @@
     <!-- adding physics -->
     <script src="lib/aframe/aframe-physics-system.min.js"></script>
     <script src="lib/aframe/aframe-event-set-component.min.js"></script>
+    <script src="lib/aframe/aframe-physics-extras.min.js"></script>
+    <script src="lib/aframe/aframe-environment-component.min.js"></script>
 
     <!-- superhands code -->
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
@@ -21,7 +23,7 @@
 
 <body>
     <a-scene physics>
-        <!-- common assets --> extern extern
+        <!-- common assets -->
         <a-assets>
             <!--
             the oculus controller (hands-left, hands-right) MIXIN
@@ -36,7 +38,7 @@
             colliderEvent: raycaster-intersection:  -> ???
             -->
             <a-mixin physics-collider phase-shift id="interaction" static-body="shape: sphere; sphereRadius: 0.02;"
-                sphere-collider="objects: [dynamic-body]" collision-filter laser-controls line raycaster="
+                sphere-collider="objects: #box, #sphere" collision-filter laser-controls line raycaster="
                 showLine: true; 
                 objects: .cube" collision-filter="collisionForces: false" super-hands="
                 colliderEvent: collisions;
@@ -52,67 +54,70 @@
             </a-mixin>
         </a-assets>
 
-        <!-- naviation -->
-        <a-entity id="navigation">
-            <a-link visualAspectEnabled="false" href="step-001-1.html" title="a page"
-                image="../assets/figures/step001.jpg" size="0.25" position="-1 1 -10" on="click" peekMode="true">
-            </a-link>
-            <a-link visualAspectEnabled="false" href="step-001-1.html" title="another page"
-                image="../assets/figures/step001.jpg" size="0.25" position="1 1 -10" on="click" peekMode="true">
-            </a-link>
-        </a-entity>
-
-
-        <!-- 
-        2 simple boxes
-        the id's are registered in the sphere-sollider object list
-        this enabled grabbing and scaling 
-        -->
-        <a-box id="box" color="orange" width="0.5" height="1" depth="0.5" position="0 2 -2" rotation="0 0 0" hoverable
-            grabbable stretchable draggable droppable dynamic-body="mass:1; boundingBox: 0.5 1 0.5;"></a-box>
-
-        <a-sphere id="sphere" color="orange" radius="0.25" position="0 2 -7" rotation="0 0 0" hoverable grabbable
-            stretchable draggable droppable dynamic-body></a-sphere>
-
-        <!--
-        a ground box to avoid deep tumbles
-        -->
-        <a-box id="earth" width="50" height="0.1" depth="50" position="0 -2 0"
-            material="src: assets/figures/wood-planks.jpg; repeat:50 25;" static-body>
-        </a-box>
-
-
-        <!--
-        the camera in a rig
-        -->
-        <a-entity id="rig" position="0 3 4">
-            <a-entity camera="active: true" look-controls wasd-controls lookat="#ground"></a-entity>
+        <!-- camera, controller and the log box in a rig -->
+        <a-entity id="rig" position="0 0 0">
+            <!-- - - - - - - - - - - -->
+            <a-entity camera="active: true" look-controls wasd-controls></a-entity>
 
             <!-- 
-            the oculus controller (hands-left, hands-right)
-            using the interaction mixin (assets)
-            -->
+                    the oculus controller (hands-left, hands-right)
+                    using the interaction mixin (assets)
+                    -->
             <a-entity mixin="interaction" hand-controls="left">
+                <!-- <a-box width="0.05" height="0.05" depth="1" position="0 0 -0.55" opacity="0.1" transparency="true"
+                    static-body glow="scale: 1.3; color: #FF00FF;"></a-box> -->
             </a-entity>
-            <a-entity mixin="interaction" hand-controls="right">
+            <a-entity mixin="interaction" hand-controls="right" aabb-collider="objects: #box;">
+                <!-- <a-box width="0.05" height="0.05" depth="1" position="0 0 -0.55" opacity="0.1" transparency="true"
+                    static-body glow="scale: 1.3; color: #FF00FF;"></a-box> -->
             </a-entity>
 
             <!--
-            the log
-            -->
-            <a-text id="text" position="-1.45 0.2 -1"
+                    the log
+                    -->
+            <a-text id="text" position="-1.45 1 -1"
                 value="Sedative posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
                 color="rgb(220,220,220)" width="1.2" height="0.7" font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
             </a-text>
-
+            <!-- - - - - - - - - - - -->
         </a-entity>
 
-        <a-entity position="0 0 0"
-            animation__1="property: rotation; dir: alternate; dur: 20000; easing: easeInOutElastic; loop: true; from: 0 0 0; to: 0 180 0;"
-            animation__2="property: position; dir: alternate; dur: 20000; easing: linear; loop: true; from: 0 0 0; to: 0 1 0;">
+        <!-- naviation -->
+        <!-- <a-entity id="navigation"> -->
+        <!-- - - - - - - - - - - -->
+        <!-- <a-link visualAspectEnabled="false" href="step-001-1.html" title="a page"
+                image="../assets/figures/step001.jpg" size="0.25" position="-1 1 -10" on="click" peekMode="true">
+            </a-link> -->
+        <!-- <a-link visualAspectEnabled="false" href="step-001-1.html" title="another page"
+                image="../assets/figures/step001.jpg" size="0.25" position="1 1 -10" on="click" peekMode="true"> -->
+        <!-- </a-link> -->
+        <!-- - - - - - - - - - - -->
+        <!-- </a-entity> -->
 
-            <a-box id="ground" width="10" height="0.1" depth="10" position="0 -0.05 0"
-                material="src: assets/figures/wood-planks.jpg; repeat:5 5;" static-body>
+
+        <!-- 
+                2 simple objects
+                the id's are registered in the sphere-sollider object list
+                this enabled grabbing and scaling 
+            -->
+        <a-box id="box" color="orange" width="0.5" height="1" depth="0.5" position="0 2 -1" rotation="0 0 0" hoverable
+            grabbable stretchable draggable droppable dynamic-body="mass:1; boundingBox: 0.5 1 0.5;"></a-box>
+
+        <a-sphere id="sphere" color="orange" radius="0.25" position="0.5 2 -0.5" rotation="0 0 0" hoverable grabbable
+            stretchable draggable droppable dynamic-body></a-sphere>
+
+        <!-- a ground box to avoid deep tumbles -->
+        <a-box id="earth" width="50" height="0.1" depth="50" position="0 0 0"
+            material="src: assets/figures/wood-planks.jpg; repeat:50 25;" static-body>
+        </a-box>
+
+        <!-- group for the moving plane -->
+        <a-entity id="group" position="0 0 0"
+            animation__1="property: rotation; dir: alternate; dur: 20000; easing: easeInOutElastic; loop: true; from: 0 -180 0; to: 0 180 0;"
+            animation__2="property: position; dir: alternate; dur: 20000; easing: linear; loop: true; from: -10 0 0; to: -10 0.5 -10;">
+            <!-- - - - - - - - - - - -->
+            <a-box id="ground" width="10" height="0.1" depth="10" position="0 0 0"
+                material="src: assets/figures/wood-planks.jpg; repeat:10 5;" static-body>
             </a-box>
             <a-box id="fence-left" material="src: assets/figures/beton.jpg; repeat:10 1;" width="0.5" height="0.25"
                 depth="10.5" position="-5 0.125 0" static-body>
@@ -126,7 +131,9 @@
             <a-box id="fence-back" material="src: assets/figures/beton.jpg; repeat:4 1;" width="10.5" height="0.25"
                 depth="0.5" position="0 0.125 5" static-body>
             </a-box>
+            <!-- - - - - - - - - - - -->
         </a-entity>
+
         <!-- 
         an external obj-file
         it can be grabbed by dynamic-body="shape: sphere; mass: 2; sphereRadius: 0.5; halfExtents: 0.5 0.5 0.5;"
@@ -139,16 +146,14 @@
 
         <!-- <a-entity log="message: Hello, Metaverse!"></a-entity> -->
 
-        <a-light type="ambient" intensity="0.5" position="-1 8 0" color="hsla(0, 0%, 100%)">
+        <a-light type="spot" angle="85" distance="12" position="-1 8 0" color="hsla(0, 90%, 80%)" target="#box">
         </a-light>
-        <a-light type="spot" angle="85" distance="12" position="-1 8 0" color="hsla(0, 90%, 80%)" target="#ground">
+        <a-light type="spot" angle="85" distance="12" position="0 8 0" color="hsla(120, 90%, 80%)" target="#sphere">
         </a-light>
-        <a-light type="spot" angle="85" distance="12" position="0 8 0" color="hsla(120, 90%, 80%)" target="#ground">
+        <a-light type="spot" angle="85" distance="12" position="1 8 0" color="hsla(240, 90%, 80%)" target="#rig">
         </a-light>
-        <a-light type="spot" angle="85" distance="12" position="1 8 0" color="hsla(240, 90%, 80%)" target="#ground">
-        </a-light>
-        <a-light type="spot" angle="15" intensity="0.25" position="4 8 0" color="hsla(0, 50%, 100%)"
-            target="#navigation">
+        <a-light type="spot" angle="15" intensity="0.25" position="4 8 0" color="hsla(0, 50%, 100%)" target="#group"
+            shadowMapHeight="1024" shadowMapWidth="1024">
         </a-light>
     </a-scene>
     <script>
@@ -159,6 +164,8 @@
                 // - - - - -
                 // DECLARATION
                 let inworld = {};
+
+                inworld.data = ['inworld log initialized.'];
 
                 /** INVENTING AN INWORLD OBJECT
                  * @desc the inworld objet is a container for inworld function,
@@ -173,14 +180,146 @@
                 inworld.log = function (message) {
                     let
                         _message = message || undefined,
+                        _messages = '',
                         _text = document.querySelector('#text') || undefined;
 
                     if (_message === undefined) return false;
                     if (_text === undefined) return false;
 
-                    _text.setAttribute('value', _message);
+                    inworld.data.push(_message);
+
+                    for (let i = 0; i < inworld.data.length; i++) {
+                        _messages += inworld.data[i] + '\n';
+                    }
+
+                    _text.setAttribute('value', _messages);
+                    console.log(_messages);
 
                 };
+
+                inworld.log('hey.');
+
+                /**
+                 * Implement AABB collision detection for entities with a mesh.
+                 * (https://en.wikipedia.org/wiki/Minimum_bounding_box#Axis-aligned_minimum_bounding_box)
+                 * It sets the specified state on the intersected entities.
+                 *
+                 * @property {string} objects - Selector of the entities to test for collision.
+                 * @property {string} state - State to set on collided entities.
+                 *
+                 */
+                AFRAME.registerComponent('aabb-collider', {
+                    schema: {
+                        objects: {
+                            default: ''
+                        },
+                        state: {
+                            default: 'collided'
+                        }
+                    },
+
+                    init: function () {
+                        this.els = [];
+                        this.collisions = [];
+                        this.elMax = new THREE.Vector3();
+                        this.elMin = new THREE.Vector3();
+
+                        inworld.log('AABB Collider initialized.');
+                    },
+
+                    /**
+                     * Update list of entities to test for collision.
+                     */
+                    update: function () {
+                        var data = this.data;
+                        var objectEls;
+
+                        // Push entities into list of els to intersect.
+                        if (data.objects) {
+                            objectEls = this.el.sceneEl.querySelectorAll(data.objects);
+                        } else {
+                            // If objects not defined, intersect with everything.
+                            objectEls = this.el.sceneEl.children;
+                        }
+                        // Convert from NodeList to Array
+                        this.els = Array.prototype.slice.call(objectEls);
+                    },
+
+                    tick: (function () {
+                        var boundingBox = new THREE.Box3();
+                        return function () {
+                            var collisions = [];
+                            var el = this.el;
+                            var mesh = el.getObject3D('mesh');
+                            var self = this;
+                            // No mesh, no collisions
+                            if (!mesh) {
+                                return;
+                            }
+                            // Update the bounding box to account for rotations and
+                            // position changes.
+                            updateBoundingBox();
+                            // Update collisions.
+                            this.els.forEach(intersect);
+                            // Emit events.
+                            collisions.forEach(handleHit);
+                            // No collisions.
+                            if (collisions.length === 0) {
+                                self.el.emit('hit', {
+                                    el: null
+                                });
+                            }
+                            // Updated the state of the elements that are not intersected anymore.
+                            this.collisions.filter(function (el) {
+                                return collisions.indexOf(el) === -1;
+                            }).forEach(function removeState(el) {
+                                el.removeState(self.data.state);
+                            });
+                            // Store new collisions
+                            this.collisions = collisions;
+
+                            // AABB collision detection
+                            function intersect(el) {
+                                var intersected;
+                                var mesh = el.getObject3D('mesh');
+                                var elMin;
+                                var elMax;
+                                if (!mesh) {
+                                    return;
+                                }
+                                boundingBox.setFromObject(mesh);
+                                elMin = boundingBox.min;
+                                elMax = boundingBox.max;
+                                // Bounding boxes are always aligned with the world coordinate system.
+                                // The collision test checks for the conditions where cubes intersect.
+                                // It's an extension to 3 dimensions of this approach (with the condition negated)
+                                // https://www.youtube.com/watch?v=ghqD3e37R7E
+                                intersected = (self.elMin.x <= elMax.x && self.elMax.x >=
+                                        elMin.x) &&
+                                    (self.elMin.y <= elMax.y && self.elMax.y >= elMin.y) &&
+                                    (self.elMin.z <= elMax.z && self.elMax.z >= elMin.z);
+                                if (!intersected) {
+                                    return;
+                                }
+                                collisions.push(el);
+                            }
+
+                            function handleHit(hitEl) {
+                                hitEl.emit('hit');
+                                hitEl.addState(self.data.state);
+                                self.el.emit('hit', {
+                                    el: hitEl
+                                });
+                            }
+
+                            function updateBoundingBox() {
+                                boundingBox.setFromObject(mesh);
+                                self.elMin.copy(boundingBox.min);
+                                self.elMax.copy(boundingBox.max);
+                            }
+                        };
+                    })()
+                });
 
                 // REGISTER AFRAME COMPONENTS
                 // AFRAME.registerComponent('log', {
