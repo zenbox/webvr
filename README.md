@@ -1,18 +1,20 @@
 # Webvr
 
-## Komponenten von sframe ausprobieren `a-frame.html`
-- @see: https://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/a-frame.html
+## Work
+
+### Komponenten von Aframe `a-frame.html`
+- @see: `https://github.com/zenbox/webvr/blob/master/a-frame.html`
 
 Darin habe ich die wesentlichen a-frame Komponenten ausprobiert: `superhands`, `physics`, `ocean`, `environment`, `particles` und den `teleporter`! Sehr cool. Links zu den Repos und den readmes sin im Quelltext angegeben.
 
-## Freestyle: tests-with-superhands.html
-- @see: http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/tests-with-superhands.html
+### Freestyle: `tests-with-superhands.html`
+- @see: `https://github.com/zenbox/webvr/blob/master/tests-with-superhands.html`
 
-zusammen mit `myworld.js` ist das mein Freestyle Experimentierkasten. Darin habe ich mich an einer Inworld Console versucht, mit der ich console.log() innerhalb der VR Welt ausführen kann.
+Zusammen mit `myworld.js` ist das mein Freestyle Experimentierkasten. Darin habe ich mich an einer Inworld Console versucht, mit der console.log() innerhalb der VR Welt ausgeführt kann.
 
 
-## i-feel-sick.html
-- @see: http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/i-feel-sick.html
+### i-feel-sick.html
+- @see: `https://github.com/zenbox/webvr/blob/master/i-feel-sick.html`
 
 Teste deine Seekrankheit. Ein lustiger Versuch mit schwankendem Boden. Funktioniert im Stehen mit Quest am eindrucksvollsten.
 
