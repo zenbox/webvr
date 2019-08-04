@@ -11,12 +11,12 @@ Eine neue Datei ist 'a-frame.html' Darin habe ich die wesentlichen a-frame Kompo
 ## Freestyle
 `test-with-superhands.html` zusammen mit `myworld.js` ist mein Freestyle Experimentierkasten. Darin habe ich mich an einer Inworld Console versucht, mit der ich console.log() innerhalb der VR Welt ausführen kann.
 
-[http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/test-with-superhands.html]
+[test-with-superhands.html](http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/test-with-superhands.html)
 
 ## i feel sick
 Teste deine Seekrankheit. Ein lustiger Versuch mit schwankendem Boden. Funktioniert im Stehen mit Quest am eindrucksvollsten.
 
-[http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/i-feel-sick.html]
+[i-feel-sick.html](http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/i-feel-sick.html)
 
 ## The Components
 - **The Aframe Base Lib**
