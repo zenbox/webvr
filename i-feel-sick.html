@@ -76,28 +76,8 @@
                     static-body glow="scale: 1.3; color: #FF00FF;"></a-box> -->
             </a-entity>
 
-            <!--
-                    the log
-                    -->
-            <a-text id="text" position="-1.45 1 -1"
-                value="Sedative posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-                color="rgb(220,220,220)" width="1.2" height="0.7" font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
-            </a-text>
             <!-- - - - - - - - - - - -->
         </a-entity>
-
-        <!-- naviation -->
-        <!-- <a-entity id="navigation"> -->
-        <!-- - - - - - - - - - - -->
-        <!-- <a-link visualAspectEnabled="false" href="step-001-1.html" title="a page"
-                image="../assets/figures/step001.jpg" size="0.25" position="-1 1 -10" on="click" peekMode="true">
-            </a-link> -->
-        <!-- <a-link visualAspectEnabled="false" href="step-001-1.html" title="another page"
-                image="../assets/figures/step001.jpg" size="0.25" position="1 1 -10" on="click" peekMode="true"> -->
-        <!-- </a-link> -->
-        <!-- - - - - - - - - - - -->
-        <!-- </a-entity> -->
-
 
         <!-- 
                 2 simple objects
@@ -111,9 +91,9 @@
             stretchable draggable droppable dynamic-body></a-sphere>
 
         <!-- a ground box to avoid deep tumbles -->
-        <a-box id="earth" width="50" height="0.1" depth="50" position="0 -2 0"
+        <!-- <a-box id="earth" width="50" height="0.1" depth="50" position="0 -2 0"
             material="src: assets/figures/wood-planks.jpg; repeat:50 25;" static-body>
-        </a-box>
+        </a-box> -->
 
         <!-- aframe extras -->
         <a-ocean position="0 0.3 0" width="100" depth="100"></a-ocean>
@@ -142,18 +122,6 @@
             <!-- - - - - - - - - - - -->
         </a-entity>
 
-        <!-- 
-        an external obj-file
-        it can be grabbed by dynamic-body="shape: sphere; mass: 2; sphereRadius: 0.5; halfExtents: 0.5 0.5 0.5;"
-        @see https://github.com/donmccurdy/aframe-physics-system
-        -->
-        <!-- <a-obj-model id="object" scale="1 1 1" position="0.1 2 -2.5" hoverable grabbable stretchable draggable droppable
-            obj-model="obj: assets/models/room.obj; mtl: assets/models/room.mtl" dynamic-body>
-        </a-obj-model> -->
-
-
-        <!-- <a-entity log="message: Hello, Metaverse!"></a-entity> -->
-
         <a-light type="spot" angle="85" distance="12" position="-1 8 0" color="hsla(0, 90%, 80%)" target="#box">
         </a-light>
         <a-light type="spot" angle="85" distance="12" position="0 8 0" color="hsla(120, 90%, 80%)" target="#sphere">
@@ -163,134 +131,6 @@
         <a-light type="ambient" intensity="0.08" position="4 8 0" color="hsla(0, 50%, 100%)">
         </a-light>
     </a-scene>
-    <script>
-        (function () {
-            'use strict';
-            // - - - - - - - - - -
-            window.onload = function () {
-                // - - - - -
-                // DECLARATION
-                let inworld = {};
-
-                /** INVENTING AN INWORLD OBJECT
-                 * @desc the inworld objet is a container for inworld function,
-                 *       i.e. a log() that can be seen in a textframe
-                 * @version 1.0.0
-                 * @author Michael
-                 *
-                 * An inworld log function
-                 * @param {string} message any text string to set into a inworls textframe
-                 * @return none
-                 */
-                inworld.log = function (message) {
-                    let
-                        _message = message || undefined,
-                        _text = document.querySelector('#text') || undefined;
-
-                    if (_message === undefined) return false;
-                    if (_text === undefined) return false;
-
-                    _text.setAttribute('value', _message);
-
-                };
-
-                // REGISTER AFRAME COMPONENTS
-                // AFRAME.registerComponent('log', {
-                //     schema: {
-                //         message: {
-                //             type: 'string',
-                //             default: 'Hello, World!'
-                //         }
-                //     },
-                //     init: function () {
-                //         console.log(this.data.message);
-                //     }
-                // });
-
-                // AFRAME.registerComponent('box', {
-                //     // the object properties
-                //     // example is a box
-                //     // the schema property 'width' can be called as 'this.data.width'
-                //     schema: {
-                //         width: {
-                //             type: 'number',
-                //             default: 1
-                //         },
-                //         height: {
-                //             type: 'number',
-                //             default: 1
-                //         },
-                //         depth: {
-                //             type: 'number',
-                //             default: 1
-                //         },
-                //         color: {
-                //             type: 'color',
-                //             default: 'steelblue'
-                //         }
-                //     },
-                //     // the object behaviour after compiling 
-                //     init: function () {
-                //         var data = this.data; // references the schema properties
-                //         var el = this.el; //     references the a-frame-entity
-
-                //         console.log(el);
-                //         console.log(data);
-
-                //         // Create geometry.
-                //         this.geometry = new THREE.BoxBufferGeometry(data.width, data.height, data.depth);
-
-                //         // Create material.
-                //         this.material = new THREE.MeshStandardMaterial({
-                //             color: data.color
-                //         });
-
-                //         // Create mesh.
-                //         this.mesh = new THREE.Mesh(this.geometry, this.material);
-
-                //         // Set mesh on entity.
-                //         el.setObject3D('mesh', this.mesh);
-                //     },
-                //     update: function () {
-                //         var data = this.data;
-                //         var el = this.el;
-
-                //         // If `oldData` is empty, then this means we're in the initialization process.
-                //         // No need to update.
-                //         if (Object.keys(oldData).length === 0) {
-                //             return;
-                //         }
-
-                //         // Geometry-related properties changed. Update the geometry.
-                //         if (data.width !== oldData.width ||
-                //             data.height !== oldData.height ||
-                //             data.depth !== oldData.depth) {
-                //             el.getObject3D('mesh').geometry = new THREE.BoxBufferGeometry(data.width, data
-                //                 .height,
-                //                 data.depth);
-                //         }
-
-                //         // Material-related properties changed. Update the material.
-                //         if (data.color !== oldData.color) {
-                //             el.getObject3D('mesh').material.color = new THREE.Color(data.color);
-                //         }
-
-                //     },
-                //     remove: function () {
-                //         this.el.removeObject3D('mesh');
-                //     }
-                // })
-
-
-
-                // let box = document.querySelector('#box').addEventListener('collide', function (event) {
-                //     text.setAttribute('value', event.target);
-                // })
-                // - - - - -
-            };
-            // - - - - - - - - - -
-        })();
-    </script>
 </body>
 
 </html>
