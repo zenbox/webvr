@@ -1,7 +1,8 @@
 # Webvr
 
 ## Komponenten von sframe ausprobieren `a-frame.html`
-- @see: http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/a-frame.html
+- @see: https://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/a-frame.html
+
 Darin habe ich die wesentlichen a-frame Komponenten ausprobiert: `superhands`, `physics`, `ocean`, `environment`, `particles` und den `teleporter`! Sehr cool. Links zu den Repos und den readmes sin im Quelltext angegeben.
 
 ## Freestyle: tests-with-superhands.html
