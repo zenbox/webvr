@@ -16,6 +16,10 @@
     <script src="lib/aframe/aframe-physics-extras.min.js"></script>
     <script src="lib/aframe/aframe-environment-component.min.js"></script>
 
+    <!-- https://github.com/donmccurdy/aframe-extras -->
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+
+
     <!-- superhands code -->
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
@@ -110,6 +114,10 @@
         <a-box id="earth" width="50" height="0.1" depth="50" position="0 -2 0"
             material="src: assets/figures/wood-planks.jpg; repeat:50 25;" static-body>
         </a-box>
+
+        <!-- aframe extras -->
+        <a-ocean position="0 0.3 0" width="100" depth="100"></a-ocean>
+
 
         <!-- group for the moving plane -->
         <a-entity id="group" position="0 0 0"
