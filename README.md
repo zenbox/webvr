@@ -12,7 +12,6 @@ Darin habe ich die wesentlichen a-frame Komponenten ausprobiert: `superhands`, `
 
 Zusammen mit `myworld.js` ist das mein Freestyle Experimentierkasten. Darin habe ich mich an einer Inworld Console versucht, mit der console.log() innerhalb der VR Welt ausgeführt kann.
 
-
 ### i-feel-sick.html
 - @try: http://michaelreichart.de/vr/i-feel-sick.html
 
