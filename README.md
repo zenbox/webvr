@@ -12,6 +12,8 @@ Eine neue Datei ist 'a-frame.html' Darin habe ich die wesentlichen a-frame Kompo
 ## i feel sick
 Teste deine Seekrankheit. Ein lustiger Versuch mit schwankendem Boden. Funktioniert im Stehen mit Quest am eindrucksvollsten.
 
+[http://htmlpreview.github.com/?https://github.com/zenbox/webcr/blob/master/i-feel-sick.html]
+
 ## The Components
 - **The Aframe Base Lib**
 [https://aframe.io]
