@@ -1,14 +1,17 @@
 # Webvr
 
-## Komponenten ausprobieren 
-Eine neue Datei ist [a-frame.html](http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/a-frame.html). Darin habe ich die wesentlichen a-frame Komponenten ausprobiert: `superhands`, `physics`, `ocean`, `environment`, `particles` und den `teleporter`! Sehr cool. Links zu den Repos und den readmes sin im Quelltext angegeben.
+## Komponenten von sframe ausprobieren `a-frame.html`
+- @see: http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/a-frame.html
+Darin habe ich die wesentlichen a-frame Komponenten ausprobiert: `superhands`, `physics`, `ocean`, `environment`, `particles` und den `teleporter`! Sehr cool. Links zu den Repos und den readmes sin im Quelltext angegeben.
 
-## Freestyle: [tests-with-superhands.html](http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/tests-with-superhands.html)
+## Freestyle: tests-with-superhands.html
+- @see: http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/tests-with-superhands.html
 
-zusammen mit `myworld.js` ist mein Freestyle Experimentierkasten. Darin habe ich mich an einer Inworld Console versucht, mit der ich console.log() innerhalb der VR Welt ausführen kann.
+zusammen mit `myworld.js` ist das mein Freestyle Experimentierkasten. Darin habe ich mich an einer Inworld Console versucht, mit der ich console.log() innerhalb der VR Welt ausführen kann.
 
 
-## [i-feel-sick.html](http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/i-feel-sick.html)
+## i-feel-sick.html
+- @see: http://htmlpreview.github.com/?https://github.com/zenbox/webvr/blob/master/i-feel-sick.html
 
 Teste deine Seekrankheit. Ein lustiger Versuch mit schwankendem Boden. Funktioniert im Stehen mit Quest am eindrucksvollsten.
 
@@ -46,8 +49,6 @@ Teste deine Seekrankheit. Ein lustiger Versuch mit schwankendem Boden. Funktioni
 - @see: https://github.com/networked-aframe/networked-aframe
 - @use: 
 `<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>`
-
-`<script src="easyrtc/easyrtc.js"></script>`
-
-`<script src="https://unpkg.com/networked-aframe.min.js"></script>`
+- @use: `<script src="easyrtc/easyrtc.js"></script>`
+- @use: `<script src="https://unpkg.com/networked-aframe.min.js"></script>`
 
