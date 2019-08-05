@@ -10,5 +10,8 @@ npm-debug.log*
 .vs
 a-painter
 barista
-objects-and-physiscs.html
+objects-and-physics.html
 multiuser.html
+networked-aframe
+video.html
+assets/videos
