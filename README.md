@@ -5,7 +5,7 @@
 ### Komponenten von Aframe `a-frame.html`
 - @try: http://michaelreichart.de/vr/a-frame.html
 
-Darin habe ich die wesentlichen a-frame Komponenten ausprobiert: `superhands`, `physics`, `ocean`, `environment`, `particles` und den `teleporter`! Sehr cool. Links zu den Repos und den readmes sin im Quelltext angegeben.
+Die wesentlichen a-frame Komponenten: `superhands`, `physics`, `ocean`, `environment`, `particles`, `multiuser`und einen einfachen `teleporter`! Sehr cool. Links zu den Repos und den readmes sind im Quelltext angegeben. `particles` scheint auf Aframe v.07 entwickelt zu sein und läuft im Beipiel nicht. `multiuser` braucht einen Websocket, das werde ich in einem anderem Beispiel implementieren.
 
 ### Freestyle: `tests-with-superhands.html`
 - @try: http://michaelreichart.de/vr/tests-with-superhands.html
